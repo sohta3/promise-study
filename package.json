@@ -1,0 +1,21 @@
+{
+  "name": "promise-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:ts": "node_modules/.bin/tsc --module commonjs --out app/ts/app.js app/ts/app.ts",
+    "build": "npm run build:ts && browserify app/ts/app.js -o dist/js/app.js "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.0-beta.0",
+    "angularjs": "0.0.1",
+    "typescript": "^1.6.2"
+  },
+  "devDependencies": {
+    "browserify": "^11.1.0",
+    "http-server": "^0.8.0"
+  }
+}
