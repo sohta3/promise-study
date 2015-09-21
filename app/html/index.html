@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<style>
-		dd {
-			margin-bottom: 20px;
-		}
-	</style>
-	<script src="../../node_modules/angular/angular.js"></script>
-	<script src="../../dist/js/app.js"></script>
-	<title>promise-study</title>
+  <meta charset="UTF-8">
+  <style>
+	dd {
+	  margin-bottom: 20px;
+	}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+  <script src="../../dist/js/app.js"></script>
+  <title>promise-study</title>
 </head>
 <body ng-app="promiseStudy">
   <h1>promise-study</h1>
   <div ng-controller="PromiseStudyController as vm">
-	  <dl>
-		  <dt>A: シンプル正常系</dt>
-		  <dd><button ng-click="vm.greetA()">push</button></dd>
+	<dl>
+	  <dt>A: シンプル正常系</dt>
+	  <dd><button ng-click="vm.greetA()">push</button></dd>
 
-		  <dt>B: シンプル異常系</dt>
-		  <dd><button ng-click="vm.greetB()">push</button></dd>
+	  <dt>B: シンプル異常系</dt>
+	  <dd><button ng-click="vm.greetB()">push</button></dd>
 
-		  <dt>C: catch & finally正常系</dt>
-		  <dd><button ng-click="vm.greetC()">push</button></dd>
+	  <dt>C: catch & finally正常系</dt>
+	  <dd><button ng-click="vm.greetC()">push</button></dd>
 
-		  <dt>D: catch & finally異常系</dt>
-		  <dd><button ng-click="vm.greetD()">push</button></dd>
+	  <dt>D: catch & finally異常系</dt>
+	  <dd><button ng-click="vm.greetD()">push</button></dd>
 
-		  <dt>E: promise chain</dt>
-		  <dd><button ng-click="vm.greetE()">push</button></dd>
+	  <dt>E: promise chain</dt>
+	  <dd><button ng-click="vm.greetE()">push</button></dd>
 
-		  <dt>F: promise以外が混ざったchain</dt>
-		  <dd><button ng-click="vm.greetF()">push</button></dd>
+	  <dt>F: promise以外が混ざったchain</dt>
+	  <dd><button ng-click="vm.greetF()">push</button></dd>
 
-		  <dt>G: returnしなくてもどんどんundefinedでchainされる（バグでありそう）</dt>
-		  <dd><button ng-click="vm.greetG()">push</button></dd>
+	  <dt>G: returnしなくてもどんどんundefinedでchainされる（バグでありそう）</dt>
+	  <dd><button ng-click="vm.greetG()">push</button></dd>
 
-		  <dt>H: chainの途中でrejectでcatch</dt>
-		  <dd><button ng-click="vm.greetH()">push</button></dd>
+	  <dt>H: chainの途中でrejectでcatch</dt>
+	  <dd><button ng-click="vm.greetH()">push</button></dd>
 
-		  <dt>I: chainの途中でcatchして再開</dt>
-		  <dd><button ng-click="vm.greetI()">push</button></dd>
+	  <dt>I: chainの途中でcatchして再開</dt>
+	  <dd><button ng-click="vm.greetI()">push</button></dd>
 
-		  <dt>J: chainの間にfinally書いてもちゃんと最後に呼んでくれる</dt>
-		  <dd><button ng-click="vm.greetJ()">push</button></dd>
+	  <dt>J: chainの間にfinally書いてもちゃんと最後に呼んでくれる</dt>
+	  <dd><button ng-click="vm.greetJ()">push</button></dd>
 
-		  <dt>K: ふつうのオブジェクトとか同期処理結果を$q.whenでpromiseに変換してchainはじめる</dt>
-		  <dd><button ng-click="vm.greetK()">push</button></dd>
+	  <dt>K: ふつうのオブジェクトとか同期処理結果を$q.whenでpromiseに変換してchainはじめる</dt>
+	  <dd><button ng-click="vm.greetK()">push</button></dd>
 
-		  <dt>L: $q.allで複数のpromiseを並行実行して結果を配列でうける</dt>
-		  <dd><button ng-click="vm.greetL()">push</button></dd>
+	  <dt>L: $q.allで複数のpromiseを並行実行して結果を配列でうける</dt>
+	  <dd><button ng-click="vm.greetL()">push</button></dd>
 
-		  <dt>M: $q.allで1つでもrejectedだったら全部rejected</dt>
-		  <dd><button ng-click="vm.greetM()">push</button></dd>
+	  <dt>M: $q.allで1つでもrejectedだったら全部rejected</dt>
+	  <dd><button ng-click="vm.greetM()">push</button></dd>
 
-		  <dt>N: then(resolveHandler, rejectHandler)では、resolveHandlerがrejectしたらcatchされない</dt>
-		  <dd><button ng-click="vm.greetN()">push</button></dd>
+	  <dt>N: then(resolveHandler, rejectHandler)では、resolveHandlerがrejectしたらcatchされない</dt>
+	  <dd><button ng-click="vm.greetN()">push</button></dd>
 
-		  <dt>O: だから、thenのrejectHandlerは使わないでcatchするほうがよい</dt>
-		  <dd><button ng-click="vm.greetO()">push</button></dd>
+	  <dt>O: だから、thenのrejectHandlerは使わないでcatchするほうがよい</dt>
+	  <dd><button ng-click="vm.greetO()">push</button></dd>
 
-		  <dt>P: Errorをthrowしたらcatchされる</dt>
-		  <dd><button ng-click="vm.greetP()">push</button></dd>
-	  </dl>
+	  <dt>P: Errorをthrowしたらcatchされる</dt>
+	  <dd><button ng-click="vm.greetP()">push</button></dd>
+	</dl>
   </div>
 </body>
 </html>
